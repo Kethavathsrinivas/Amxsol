@@ -322,14 +322,16 @@
     display: flex;
     flex-direction: column;
     margin: 20px 0;
+    overflow: hidden;
 }
 
 .marquee-left, .marquee-right {
     width: 100%;
-    overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
     display: flex;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .marquee-button {
@@ -344,11 +346,11 @@
 }
 
 .marquee-left {
-    animation: marquee-left 20s linear infinite;
+    animation: marquee-left 40s linear infinite;
 }
 
 .marquee-right {
-    animation: marquee-right 20s linear infinite;
+    animation: marquee-right 40s linear infinite;
 }
 
 .marquee-button-left {
@@ -366,12 +368,14 @@
 }
 
 @keyframes marquee-left {
-    0% { transform: translateX(-100%); }
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
 }
 
 @keyframes marquee-right {
-    0% { transform: translateX(100%); }
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
 }
 
@@ -383,7 +387,7 @@
     }
 
     .marquee-left, .marquee-right {
-        animation-duration: 15s; /* Speed up animation for smaller screens */
+        animation-duration: 30s; /* Speed up animation for smaller screens */
     }
 }
 
@@ -394,6 +398,6 @@
     }
 
     .marquee-left, .marquee-right {
-        animation-duration: 10s; /* Further speed up animation for very small screens */
+        animation-duration: 20s; /* Further speed up animation for very small screens */
     }
 }
